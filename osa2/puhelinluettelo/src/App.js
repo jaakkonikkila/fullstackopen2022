@@ -96,6 +96,13 @@ const App = () => {
                   setPersons(persons)
             })
           })
+          .catch(error => {
+            console.log(error.response.data)
+            setErrorMessage(error.response.data.error)
+            setTimeout(() => {
+              setErrorMessage(null)
+            }, 5000)
+          })
       }
       return
     }
@@ -110,6 +117,13 @@ const App = () => {
         setPersons(persons.concat(returnedPerson))
         setNewName('')
         setNewNumber('')
+    })
+    .catch(error => {
+      console.log(error.response.data)
+      setErrorMessage(error.response.data.error)
+            setTimeout(() => {
+              setErrorMessage(null)
+            }, 5000)
     })
   }
 
